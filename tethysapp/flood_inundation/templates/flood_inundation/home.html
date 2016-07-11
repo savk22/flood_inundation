@@ -1,6 +1,34 @@
 {% extends "flood_inundation/base.html" %}
 
 {% load staticfiles %}
+{% load tethys_gizmos %}
+
+{% block app_navigation_items %}
+
+<div align = "left">
+
+  <li><input type="checkbox" onClick="catchment.setVisible(!catchment.getVisible());"  id="ch_flood" name="catchment" checked>Subbasins</li>
+
+  <li><input type="checkbox" onClick="flowlines.setVisible(!flowlines.getVisible());"  id="ch_land" name="flowlines" checked>Streamlines</li>
+
+  <li><input type="checkbox" onClick="polygon.setVisible(!polygon.getVisible());"  id="ch_address" name="address" checked>HUC 12 Basin</li>
+
+</div>
+
+  <form id='forecast-form' action="{% url 'flood_inundation:home' %}" method="get">
+      {% csrf_token %}
+  <!--<h5>Manual Method</h5>-->
+    <!--{% gizmo text_input depth_input %}-->
+    <!--{% gizmo button get_flood %}-->
+
+  <h6>Flood Forecast</h6>
+    {% gizmo select_input forecast_range_select %}
+    {% gizmo date_picker forecast_date_picker %}
+    {% gizmo select_input forecast_time_select %}
+    {% gizmo button get_forecast %}
+</form>
+
+{% endblock %}
 
 {% block app_content %}
 <!-- This extra bit of style defines the size of the "map" div tag area that shows up later -->

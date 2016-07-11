@@ -8,11 +8,28 @@ var baseLayer = new ol.layer.Tile({
 });
 
 //Define all WMS Sources:
-var river =  new ol.source.TileWMS({
+var subbasin =  new ol.source.TileWMS({
         url:'http://geoserver.byu.edu/arcgis/services/Tuscaloosa/Catchment/MapServer/WmsServer?',
-
         params:{
-            LAYERS:"0",
+           LAYERS:"0",
+//            FORMAT:"image/png", //Not a necessary line, but maybe useful if needed later
+        },
+        crossOrigin: 'Anonymous' //This is necessary for CORS security in the browser
+        });
+
+var river =  new ol.source.TileWMS({
+        url:'http://geoserver.byu.edu/arcgis/services/Tuscaloosa/Streamlines/MapServer/WmsServer?',
+        params:{
+           LAYERS:"0",
+//            FORMAT:"image/png", //Not a necessary line, but maybe useful if needed later
+        },
+        crossOrigin: 'Anonymous' //This is necessary for CORS security in the browser
+        });
+
+var basin =  new ol.source.TileWMS({
+        url:'http://geoserver.byu.edu/arcgis/services/Tuscaloosa/Catchment/MapServer/WmsServer?',
+        params:{
+           LAYERS:"0",
 //            FORMAT:"image/png", //Not a necessary line, but maybe useful if needed later
         },
         crossOrigin: 'Anonymous' //This is necessary for CORS security in the browser
@@ -20,20 +37,28 @@ var river =  new ol.source.TileWMS({
 
 //Define all WMS layers
 //The gauge layers can be changed to layer.Image instead of layer.Tile (and .ImageWMS instead of .TileWMS) for a single tile
-var flood = new ol.layer.Tile({
-    source:river
+var catchment = new ol.layer.Tile({
+    source:subbasin
     }); //Thanks to http://jsfiddle.net/GFarkas/tr0s6uno/ for getting the layer working
 
+var flowlines = new ol.layer.Tile({
+    source:river
+    });
+
+var polygon = new ol.layer.Tile({
+    source:basin
+    });
 //Set opacity of layers
-flood.setOpacity(0.8);
+catchment.setOpacity(0.8);
+polygon.setOpacity(0.6);
 
 
-sources = [river];
-layers = [baseLayer, flood];
+sources = [subbasin, river, basin];
+layers = [baseLayer, catchment, flowlines, polygon];
 
 //Establish the view area. Note the reprojection from lat long (EPSG:4326) to Web Mercator (EPSG:3857)
 var view = new ol.View({
-        center: [-9730000, 3920000],
+        center: [-9735000, 3917000],
         projection: projection,
         zoom: 12,
     })

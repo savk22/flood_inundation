@@ -6,9 +6,9 @@ class FloodInundation(TethysAppBase):
     Tethys app class for Flood Inundation.
     """
 
-    name = 'Flood Inundation'
+    name = 'Tuscaloosa Flood Map'
     index = 'flood_inundation:home'
-    icon = 'flood_inundation/images/icon.gif'
+    icon = 'flood_inundation/images/flood.png'
     package = 'flood_inundation'
     root_url = 'flood-inundation'
     color = '#e74c3c'
