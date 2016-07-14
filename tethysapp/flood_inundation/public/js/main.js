@@ -4,7 +4,10 @@ var projection = ol.proj.get('EPSG:3857');
 //Define Basemap
 //Here we are declaring the raster layer as a separate object to put in the map later
 var baseLayer = new ol.layer.Tile({
-    source: new ol.source.MapQuest({layer: 'osm'})
+    source: new ol.source.BingMaps({
+        key: 'bQu3Ep7QlBGnycbtYHkm~YC02-zt2ntZ-TPL4RotREg~AjlcnqkJmHSlQXzLXs1EV18Ccd5421OxrRFu9V-QJ0BQypTA_Q7NdK654t8FPUtQ',
+        imagerySet: 'AerialWithLabels'  // Options 'Aerial', 'AerialWithLabels', 'Road'
+        })
 });
 
 //Define all WMS Sources:
@@ -27,7 +30,7 @@ var river =  new ol.source.TileWMS({
         });
 
 var basin =  new ol.source.TileWMS({
-        url:'http://geoserver.byu.edu/arcgis/services/Tuscaloosa/Catchment/MapServer/WmsServer?',
+        url:'http://geoserver.byu.edu/arcgis/services/Tuscaloosa/HUC12/MapServer/WmsServer?',
         params:{
            LAYERS:"0",
 //            FORMAT:"image/png", //Not a necessary line, but maybe useful if needed later
