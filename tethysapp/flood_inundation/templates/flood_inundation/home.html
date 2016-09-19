@@ -29,9 +29,14 @@
 </form>
 
   {% gizmo button get_forecast %}
+
+
 {% endblock %}
 
 {% block app_content %}
+
+{% gizmo range_slider slider1 %}
+
 <!-- This extra bit of style defines the size of the "map" div tag area that shows up later -->
     <style>
       .map {
@@ -49,5 +54,8 @@
 
 {% block scripts %}
   {{ block.super }}
+   <!-- <script type="text/javascript">
+      var FolderName = {{NewFolderName}};
+    </script> -->
   <script src="{% static 'flood_inundation/js/main.js' %}" type="text/javascript"></script>
 {% endblock %}

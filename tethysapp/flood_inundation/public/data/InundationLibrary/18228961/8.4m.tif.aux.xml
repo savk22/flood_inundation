@@ -1,0 +1,32 @@
+<PAMDataset>
+  <Metadata>
+    <MDI key="DataType">Generic</MDI>
+  </Metadata>
+  <Metadata domain="Esri">
+    <MDI key="PyramidResamplingType">NEAREST</MDI>
+  </Metadata>
+  <PAMRasterBand band="1">
+    <Description>Band_1</Description>
+    <Histograms>
+      <HistItem>
+        <HistMin>0.005308151245117188</HistMin>
+        <HistMax>8.399999618530273</HistMax>
+        <BucketCount>256</BucketCount>
+        <IncludeOutOfRange>1</IncludeOutOfRange>
+        <Approximate>0</Approximate>
+        <HistCounts>4|5|7|6|9|4|2|4|5|3|5|2|6|3|6|3|5|3|2|6|7|4|3|8|6|1|2|9|6|1|9|3|4|8|7|5|6|4|1|12|12|8|3|5|5|6|2|5|5|7|7|2|8|4|3|4|4|9|9|2|6|6|7|7|5|9|7|9|9|7|3|6|6|6|11|6|5|7|6|3|7|10|8|8|3|11|7|5|10|7|3|8|8|13|5|10|5|7|8|9|8|12|5|6|2|4|10|8|14|5|6|8|9|3|7|9|6|17|8|4|5|9|7|16|22|16|9|4|10|5|8|6|7|3|10|11|13|9|13|9|5|10|11|6|9|6|4|11|13|7|7|15|8|6|7|12|5|4|9|6|11|7|10|9|16|3|8|11|7|9|7|8|3|6|13|10|20|8|12|12|9|8|10|8|7|13|8|7|16|9|13|13|10|13|11|13|9|11|17|12|9|9|16|10|11|13|14|14|15|16|18|12|16|12|14|13|13|16|17|18|13|17|16|18|15|17|17|20|21|18|23|12|20|14|17|22|23|19|15|24|22|11|22|17|18|25|22|35|13|32|16|29|26|2|0|85</HistCounts>
+      </HistItem>
+    </Histograms>
+    <Metadata>
+      <MDI key="BandName">Band_1</MDI>
+      <MDI key="RepresentationType">ATHEMATIC</MDI>
+      <MDI key="STATISTICS_COVARIANCES">5.740807248846727</MDI>
+      <MDI key="STATISTICS_MAXIMUM">8.3999996185303</MDI>
+      <MDI key="STATISTICS_MEAN">5.3316689120356</MDI>
+      <MDI key="STATISTICS_MINIMUM">0.0053081512451172</MDI>
+      <MDI key="STATISTICS_SKIPFACTORX">1</MDI>
+      <MDI key="STATISTICS_SKIPFACTORY">1</MDI>
+      <MDI key="STATISTICS_STDDEV">2.3959981737987</MDI>
+    </Metadata>
+  </PAMRasterBand>
+</PAMDataset>

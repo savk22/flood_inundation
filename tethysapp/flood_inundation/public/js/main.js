@@ -38,6 +38,18 @@ var basin =  new ol.source.TileWMS({
         crossOrigin: 'Anonymous' //This is necessary for CORS security in the browser
         });
 
+//console.log(FolderName);
+
+var depthmap = new ol.layer.Image({
+        source: new ol.source.ImageStatic({
+        projection: ol.proj.get('EPSG:4326'),
+        imageExtent: [-87.461413, 33.201141, -87.444098, 33.209104],
+        url: '/static/flood_inundation/data/InundationLibrary/18228791/12.3m.tif'
+//        url: '/static/flood_inundation/data/results/Floodplain_' + FolderName + range_input + '.tif'
+        }),
+        });
+
+
 //Define all WMS layers
 //The gauge layers can be changed to layer.Image instead of layer.Tile (and .ImageWMS instead of .TileWMS) for a single tile
 var catchment = new ol.layer.Tile({
@@ -57,7 +69,7 @@ polygon.setOpacity(0.6);
 
 
 sources = [subbasin, river, basin];
-layers = [baseLayer, catchment, flowlines, polygon];
+layers = [baseLayer, catchment, flowlines, polygon];  //add depthmap back for flood maps
 
 //Establish the view area. Note the reprojection from lat long (EPSG:4326) to Web Mercator (EPSG:3857)
 var view = new ol.View({
